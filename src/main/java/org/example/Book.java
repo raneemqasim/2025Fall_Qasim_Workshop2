@@ -5,7 +5,6 @@ package org.example;
 //There should NOT be any code that takes in user input
 //All this class cares about is book data
 //and what to do when the book is checked in or out, that's it
-
 public class Book {
 
     //properties
