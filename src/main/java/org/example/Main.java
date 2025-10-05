@@ -2,8 +2,6 @@ package org.example;
 
 import java.util.Scanner;
 
-//This template is to help you know where certain code should live
-//This is to help you along if you're stuck
 public class Main {
     public static void main(String[] args) {
         //You'll need an array of 20 books, put it here
@@ -46,8 +44,9 @@ public class Main {
 
             //Based on what they type, make a switch case to handle it
             //Be sure they can exit the program!
-            switch (userInput1){
-                case 1: //show available books:
+            switch (userInput1) {
+                case 1:
+                    //show available books:
                     //Use a for loop and sout to print all the book titles
                     //remember to use your Book class getters
                     //Use if statements to filter out books that are checkedin/out as need be
@@ -58,45 +57,66 @@ public class Main {
                         }
                     }
 
-                        System.out.println("1) Check out book");
-                        System.out.println("2) Back");
+                    System.out.println("1) Check out book");
+                    System.out.println("2) Back");
 
-                        int userInput2 = scanner.nextInt();
+                    int userInput2 = scanner.nextInt();
 
-                        switch (userInput2) {
-                            case 1:
-                                System.out.println("Please enter the id of the book you want to check out.");
-                                int bookToCheckOut = scanner.nextInt();
-                                books[bookToCheckOut].setCheckedOut(true);
-                                System.out.println("What is your name?");
-                                String userName = scanner.nextLine();
-                                books[bookToCheckOut].setCheckedOutTo(userName);
-                                break;
-                            case 2:
-                                break;
-                        }
+                    switch (userInput2) {
+                        case 1:
+                            System.out.println("Please enter the id of the book you want to check out.");
+                            int bookToCheckOut = scanner.nextInt();
+                            scanner.nextLine();
+                            books[bookToCheckOut].setCheckedOut(true);
+                            System.out.println("What is your name?");
+                            String userName = scanner.nextLine();
+                            books[bookToCheckOut].setCheckedOutTo(userName);
+                            System.out.println("Success!");
+                            break;
+                        case 2:
+                            break;
+
+                    }
+
+                    break;
+
                 case 2:
-                    //get books that ischeckedout = true
+                    //show checked out books
+                    for (int i = 0; i < books.length; i++) {
+                        if (books[i].isCheckedOut() == true) {
+                            System.out.printf("%n" + books[i].toString() + "%n");
+                        }
+                    }
+
                     System.out.println("1) Check in a book");
                     System.out.println("2) Back");
+
                     int userInput3 = scanner.nextInt();
+
                     switch (userInput3) {
                         case 1:
                             System.out.println("Please enter the id of the book you want to check in.");
                             int bookToCheckIn = scanner.nextInt();
+                            books[bookToCheckIn].setCheckedOut(false);
+                            books[bookToCheckIn].setCheckedOutTo(null);
+                            System.out.println("Success!");
                             break;
                         case 2:
                             break;
                     }
 
+                    break;
+
                 case 3:
                     running = false;
 
-            //You will call the checkIn() and checkOut() methods
-            //If the user wants to check in or out
-            //Remember if they check out you must ask for their name!
-            //example: book.checkOut(name) or book.checkIn()
+                    //You will call the checkIn() and checkOut() methods
+                    //If the user wants to check in or out
+                    //Remember if they check out you must ask for their name!
+                    //example: book.checkOut(name) or book.checkIn()
 
 
+            }
+        }
     }
 }
