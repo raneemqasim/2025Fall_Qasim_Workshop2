@@ -14,6 +14,15 @@ public class Book {
     private boolean isCheckedOut;
     private String checkedOutTo;
 
+    @Override
+    public String toString() {
+        return "id: " + id +
+                ", isbn: " + isbn +
+                ", title: " + title +
+                ", isCheckedOut= " + isCheckedOut +
+                ", checkedOutTo= " + checkedOutTo;
+    }
+
     //constructor
     public Book(int id, String isbn, String title, boolean isCheckedOut, String checkedOutTo) {
         this.id = id;
@@ -21,6 +30,7 @@ public class Book {
         this.title = title;
         this.isCheckedOut = isCheckedOut;
         this.checkedOutTo = checkedOutTo;
+
     }
 
     public int getId() {
@@ -64,8 +74,8 @@ public class Book {
     }
 
     //check in and out methods
-    public void CheckInBook(int id) {this.isCheckedOut == False}
-    public void CheckOutBook(int id) {this.isCheckedOut == True}
+    public void CheckInBook(int id) {this.isCheckedOut = false;}
+    public void CheckOutBook(int id) {this.isCheckedOut = true;}
 
 }
 
